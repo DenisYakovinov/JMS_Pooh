@@ -25,9 +25,9 @@ public class Request {
             var params = headLines[1].split("/");
             param = params.length > 3 ? params[params.length - 1] : "";
         } else {
-            var reg = "(\\r)?" +ls + "(\\r)?" + ls;
+            var reg = "(\\r)?" + ls + "(\\r)?" + ls;
             var endLines =  content.split(reg);
-            param = endLines.length < 2 ? "": endLines[endLines.length - 1].trim();
+            param = endLines.length < 2 ? "" : endLines[endLines.length - 1].trim();
         }
         return new Request(httpRequestType, poohMode, sourceName, param);
     }

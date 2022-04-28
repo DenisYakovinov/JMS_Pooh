@@ -33,7 +33,7 @@ public class PoohServer {
                         var response = modes.get(request.getPoohMode()).process(request);
                         String ls = System.lineSeparator();
                         System.out.println(content);
-                        System.out.println("=======");
+                        System.out.println();
                         System.out.println("HTTP/1.1 " + response.getStatus() + ls + response);
                         out.write(("HTTP/1.1 " + response.getStatus() + ls).getBytes());
                         out.write((response.getText().concat(ls)).getBytes());

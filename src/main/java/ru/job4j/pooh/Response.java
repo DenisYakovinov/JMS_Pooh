@@ -19,9 +19,9 @@ public class Response {
 
     @Override
     public String toString() {
-        return "Response{" +
-                "text='" + text + '\'' +
-                ", status='" + status + '\'' +
-                '}';
+        return "Response {"
+                + "text='" + text + '\''
+                + ", status='" + status + '\''
+                + '}';
     }
 }
