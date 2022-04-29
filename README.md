@@ -1,5 +1,7 @@
 # job4j_pooh
-We need to make an analogue of the asynchronous RabbitMQ queue.<br>
+
+[![Java CI with Maven](https://github.com/DenisYakovinov/job4j_pooh/actions/workflows/maven.yml/badge.svg)](https://github.com/DenisYakovinov/job4j_pooh/actions/workflows/maven.yml)
+
 <ul>
     <li>We need to make an analogue of the asynchronous RabbitMQ queue.</li>
     <li>The application launches Socket and waits for clients.</li>
@@ -32,7 +34,7 @@ We need to make an analogue of the asynchronous RabbitMQ queue.<br>
     weather indicates the name of the queue.
     The GET request should get items from the weather queue.
     curl -X GET http://localhost:9000/queue/weather
-    Answer: temperature=18<br>
+    Answer: temperature=18
 </p>
 <h2>Topic mode</h2>
 <p>

@@ -2,6 +2,10 @@ package ru.job4j.pooh;
 
 public class Request {
 
+    private static final String LINE_SEPARATOR = System.lineSeparator();
+    private static final String HTTP_BODY_REGEXP_SEPARATOR = "(\\r)?" + LINE_SEPARATOR + "(\\r)?"
+            + LINE_SEPARATOR;
+
     private final String httpRequestType;
     private final String poohMode;
     private final String sourceName;
@@ -15,8 +19,7 @@ public class Request {
     }
 
     public static Request of(String content) {
-        var ls = System.lineSeparator();
-        var headLines = content.split(ls)[0].split(" ");
+        var headLines = content.split(LINE_SEPARATOR)[0].split(" ");
         var httpRequestType = headLines[0];
         var poohMode = headLines[1].split("/")[1];
         var sourceName = headLines[1].split("/")[2];
@@ -25,9 +28,8 @@ public class Request {
             var params = headLines[1].split("/");
             param = params.length > 3 ? params[params.length - 1] : "";
         } else {
-            var reg = "(\\r)?" + ls + "(\\r)?" + ls;
-            var endLines =  content.split(reg);
-            param = endLines.length < 2 ? "" : endLines[endLines.length - 1].trim();
+            var bodyLines =  content.split(HTTP_BODY_REGEXP_SEPARATOR);
+            param = bodyLines.length < 2 ? "" : bodyLines[bodyLines.length - 1].trim();
         }
         return new Request(httpRequestType, poohMode, sourceName, param);
     }
